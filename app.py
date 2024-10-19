@@ -19,6 +19,9 @@ def on_motion_detected(frame):
     # 人間が検出された場合
     if len(boxes) > 0:
         print("Human detected!")
+        # 画像を保存
+        cv2.imwrite("output.png", frame)
+
         # 人間の領域を矩形で囲む
         for (x, y, w, h) in boxes:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
